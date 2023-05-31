@@ -34,7 +34,7 @@ mkdir ~/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
-- 好きなプラグインを入れる
+- 好きなプラグインを入れる  
 vimを実行して以下のコマンドを実行するとインストールされる
 ```
 :PluginInstall
