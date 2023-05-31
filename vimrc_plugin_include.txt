@@ -1,0 +1,119 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+" https://github.com/VundleVim/Vundle.vim
+
+Plugin 'preservim/nerdtree'
+" https://github.com/preservim/nerdtree
+
+Plugin 'itchyny/lightline.vim'
+" https://github.com/itchyny/lightline.vim
+
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+" https://github.com/junegunn/fzf.vim
+
+Plugin 'jiangmiao/auto-pairs'
+" https://github.com/jiangmiao/auto-pairs
+
+Plugin 'nathanaelkane/vim-indent-guides'
+" https://github.com/preservim/vim-indent-guides
+
+
+Plugin 'vim-syntastic/syntastic'
+" https://github.com/vim-syntastic/syntastic
+
+
+
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+
+" autocmd VimEnter * NERDTree
+
+" Start NERDTree. If a file is specified, move the cursor to its window.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+
+
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" indent guides enabled by default
+let g:indent_guides_enable_on_vim_startup = 1
+
+
+" syntastic setting
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint']
+
+
+
+
+
+
+set number " 行番号の追加
+set cursorcolumn " 編集中の行をハイライト
+set ruler " 右下にカーソルの位置を表示
+set showcmd " 入力中のコマンドを表示
+set title " タイトルの追加
+syntax enable " シンタックスハイライトを有効化
+set wildmenu " vim上からファイルを選択できる機能を有効化
+set ambiwidth=double " 全角文字の重なりを解消
+set backspace=indent,eol,start " 挿入モードでbackspaceを使って削除を可能に
+set laststatus=2 " ステータスバーを2行表示
+set history=1000 " コマンドの履歴を1000件保存
+set showmatch " 対応する括弧をハイライト
+set smartindent " 前の行のインデントを保持
+set clipboard+=unnamed " ヤンクの結果をクリップボードに保存
+set noerrorbells " エラーの表示時にビープ音を鳴らさない
+set mouse=a " マウスの有効化
+
+set shiftwidth=0 " タブの設定(タブ幅4の場合)
+set softtabstop=4
+set tabstop=4
+
+autocmd FileType python setlocal tabstop=4 " 言語ごとにタブ幅を設定する場合
+
+set hlsearch " 検索結果をハイライト
+set incsearch " 最初の一文字を入力した時点から検索開始
+set wrapscan " ファイル末尾に到達すると再び先頭から検索
+set showcmd " 右下に入力中のコマンドを表示設定
+set noerrorbells " エラーメッセージの表示時のビープ音を消す設定
+set ignorecase " 検索時に大文字小文字を区別しない
+
+
+" コメントの色を水色
+hi Comment ctermfg=3 
+
+
