@@ -50,7 +50,4 @@ vimのチュートリアル
 ```
 vimtutor
 ```
-- 日本語版
-```
-vimtutor ja
-```
+
